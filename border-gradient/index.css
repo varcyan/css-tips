@@ -1,0 +1,61 @@
+body {
+  background: #19242e;
+  color: #fff;
+}
+ /* 方案1 */
+.box {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  background:linear-gradient(180deg, rgba(45, 45, 49, 0.9) 0%, rgba(40, 42, 46, 0.9) 100%);
+  text-decoration: line-through;
+}
+.box:before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: 0;
+  bottom: 0;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  background: linear-gradient(180deg, rgba(245, 54, 79, 0.8) 0%, rgba(255, 97, 97, 0) 100%);
+  z-index: -1;
+}
+.box,.box:before {
+  border-radius: 12px;
+}
+
+/* 方案2	*/
+.box2 {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  padding: 2px;
+  box-sizing: border-box;
+}
+.box2:before,.box2:after{
+  content: '';
+  position: absolute;
+}
+.box2:before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(245, 54, 79, 0.8) 0%, rgba(255, 97, 97, 0) 100%);
+  z-index: -2;
+}
+.box2:after {
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  top: 2px;
+  left: 2px;
+  background:linear-gradient(180deg, rgba(45, 45, 49, 0.9) 0%, rgba(40, 42, 46, 0.9) 100%);
+  z-index: -1;
+}
+.box2,.box2:before,.box2:after{
+  border-radius: 12px;
+}
